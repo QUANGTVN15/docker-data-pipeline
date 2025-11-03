@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  joke:
+    container_name: joke
+    build: .
+    environment:
+      KAFKA_BROKER_URL: broker:9092
+      TOPIC_NAME: joke
+      SLEEP_TIME: 10
+
+networks:
+  default:
+    external:
+      name: kafka-network
